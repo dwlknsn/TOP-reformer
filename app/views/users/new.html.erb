@@ -1,28 +1,6 @@
-
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render "errors" %>
 
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
 
-<%= form_with model: @user do |form| %>
-  <%= label(:user, :username) %>
-  <%= form.text_field(:username) %>
-
-  <%= label(:user, :email) %>
-  <%= form.email_field(:email, { placeholder: "hello@example.com" }) %>
-
-  <%= label(:user, :password) %>
-  <%= form.password_field(:password) %>
-
-  <%= form.submit %>
-<% end %>
+<%= render "form" %>
