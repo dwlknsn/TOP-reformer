@@ -1,9 +1,15 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
 
-<%= form_tag(users_path) do |f| %>
-  <%= text_field_tag(field_name(:user, :username)) %>
-  <%= email_field_tag(field_name(:user, :email)) %>
-  <%= password_field_tag(field_name(:user, :password)) %>
-  <%= submit_tag %>
+<%= form_with model: @user do |form| %>
+  <%= label(:user, :username) %>
+  <%= form.text_field(:username) %>
+
+  <%= label(:user, :email) %>
+  <%= form.email_field(:email, { placeholder: "hello@example.com" }) %>
+
+  <%= label(:user, :password) %>
+  <%= form.password_field(:password) %>
+
+  <%= form.submit %>
 <% end %>
