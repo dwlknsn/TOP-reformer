@@ -11,8 +11,8 @@
   </div>
 <% end %>
 
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
 
 <%= form_with model: @user do |form| %>
   <%= label(:user, :username) %>
@@ -22,7 +22,7 @@
   <%= form.email_field(:email, { placeholder: "hello@example.com" }) %>
 
   <%= label(:user, :password) %>
-  <%= form.password_field(:password) %>
+  <%= form.password_field(:password, { value: @user.password }) %>
 
   <%= form.submit %>
 <% end %>
