@@ -1,21 +1,9 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
 
-<form action=<%= users_path %> method="post" accept-charset="UTF-8">
-  <input
-    type="hidden"
-    name="authenticity_token"
-    value="<%= form_authenticity_token %>"
-  >
-
-  <label for="user_username">User Username:</label>
-  <input type="text" name="user[username]" id="user_username">
-
-  <label for="user_email">User Email:</label>
-  <input type="email" name="user[email]" id="user_email">
-
-  <label for="user_password">User Password:</label>
-  <input type="password" name="user[password]" id="user_password">
-
-  <input type="submit" name="commit" value="Create User"  data-disable-with="Create User">
-</form>
+<%= form_tag(users_path) do |f| %>
+  <%= text_field_tag(field_name(:user, :username)) %>
+  <%= email_field_tag(field_name(:user, :email)) %>
+  <%= password_field_tag(field_name(:user, :password)) %>
+  <%= submit_tag %>
+<% end %>
